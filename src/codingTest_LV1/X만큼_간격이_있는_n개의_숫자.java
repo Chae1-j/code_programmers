@@ -1,5 +1,7 @@
 package codingTest_LV1;
 
+import java.util.Scanner;
+
 public class X만큼_간격이_있는_n개의_숫자 {
 
 	public static void main(String[] args) {

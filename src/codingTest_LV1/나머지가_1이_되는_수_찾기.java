@@ -1,5 +1,8 @@
 package codingTest_LV1;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class 나머지가_1이_되는_수_찾기 {
 
 	public static void main(String[] args) {
