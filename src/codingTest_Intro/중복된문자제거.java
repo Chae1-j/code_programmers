@@ -1,6 +1,6 @@
 package codingTest_Intro;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class 중복된문자제거 {
 
@@ -11,7 +11,24 @@ public class 중복된문자제거 {
 		 */
 		Scanner sc = new Scanner(System.in);
 		String my_string = sc.next();
+		String answer = "";
+		for(int i = 0; i < my_string.length(); i++) {
+			if(my_string.indexOf(my_string.charAt(i))==i) {
+				answer += my_string.charAt(i);
+			}
+		}
+		System.out.println(answer);
+//		StringBuilder sb = new StringBuilder();
+//		Set<Character> set = new HashSet<>();
+//		for(char c : my_string.toCharArray()) {
+//			if(set.add(c)) {
+//				sb.append(c);
+//			}
+//		}
+//		System.out.println(sb.toString());
 		
+//		String[] sArr = my_string.split("");
+//		System.out.println(Arrays.toString(sArr));
 	}
 
 }
