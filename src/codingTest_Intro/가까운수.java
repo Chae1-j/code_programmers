@@ -1,6 +1,6 @@
 package codingTest_Intro;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class 가까운수 {
 
@@ -21,8 +21,8 @@ public class 가까운수 {
 		for(int i = 0; i < array.length; i++) {
 			if(array[i]-n < close) {
 				close = array[i] - n;
-				answer = array[i];
 			}
+			answer = array[i];
 			
 		}
 		System.out.println(answer);

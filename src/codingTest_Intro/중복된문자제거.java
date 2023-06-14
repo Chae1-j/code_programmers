@@ -1,6 +1,9 @@
 package codingTest_Intro;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class 중복된문자제거 {
 
@@ -12,12 +15,25 @@ public class 중복된문자제거 {
 		Scanner sc = new Scanner(System.in);
 		String my_string = sc.next();
 		String answer = "";
-		for(int i = 0; i < my_string.length(); i++) {
-			if(my_string.indexOf(my_string.charAt(i))==i) {
-				answer += my_string.charAt(i);
-			}
-		}
-		System.out.println(answer);
+
+        List<Character> temp = new ArrayList<>();
+        List<Character> result = new ArrayList<>();
+        
+        for(int i = 0; i < my_string.length(); i++){
+        	temp.add(my_string.charAt(i));
+        }
+        
+        result = temp.stream().distinct().collect(Collectors.toList());
+        
+        for(int i = 0; i < result.size(); i++) {
+        	answer += result.get(i);
+        }
+//		for(int i = 0; i < my_string.length(); i++) {
+//			if(!answer.contains(String.valueOf(my_string.charAt(i)))) {
+//				answer += my_string.charAt(i);
+//			}
+//		}
+//		System.out.println(answer);
 //		StringBuilder sb = new StringBuilder();
 //		Set<Character> set = new HashSet<>();
 //		for(char c : my_string.toCharArray()) {
