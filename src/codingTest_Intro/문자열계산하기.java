@@ -10,14 +10,27 @@ public class 문자열계산하기 {
 		*/
 		Scanner sc = new Scanner(System.in);
 		String my_string = sc.next();
-		int answer = 0;
 		String[] sArr = my_string.split(" ");
-		if(sArr[1].equals("+")) {
-			answer = Integer.valueOf(sArr[0]) + Integer.valueOf(sArr[2]);
-		} else {
-			answer = Integer.valueOf(sArr[0]) - Integer.valueOf(sArr[2]);
+		int answer = Integer.parseInt(sArr[0]); // 첫 번 째 숫자를 초기값으로 지정
+		for(int i = 1; i < sArr.length; i+=2) {
+			String str = sArr[i];
+			int num = Integer.parseInt(sArr[i+1]);
+			
+			if(str.equals("+")) {
+				answer += num;
+			} else if(str.equals("-")) {
+				answer -= num;
+			}
 		}
-
+//		for(int i = 0; i < sArr.length; i++) {
+//			if(i%2==1 && sArr[i].equals("+")) {
+//				answer = Integer.valueOf(sArr[i-1]) + Integer.valueOf(sArr[i+1]);				
+//			} else if(i%2==1 && sArr[i].equals("-")) {
+//				for(int j = 0; j < sArr.length; j += 2) {
+//					answer -= Integer.valueOf(sArr[j]);
+//				}
+//			}
+//		}
 		System.out.println(answer);
 	}
 

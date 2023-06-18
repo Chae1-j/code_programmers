@@ -14,13 +14,25 @@ public class K의개수구하기 {
 		int i = sc.nextInt();
 		int j = sc.nextInt();
 		int k = sc.nextInt();
-		
+		int answer = 0;
+        for(int a = i; a <= j; a++) {
+            String num = String.valueOf(a);
+            for(int b = 0; b < num.length(); b++) {
+                if(Character.getNumericValue(num.charAt(b))==k) {
+                    answer++;
+                }
+            }
+        }
+        System.out.println(answer);
+		/*
 		int answer = 0;
         for(int a = i; a <= j; a++) {
             if(Integer.toString(a).contains(Integer.toString(k))) {
                 answer++;
             }
-        }
+        } i : 1, j : 13, k : 1 실행시 1, 10, 11(2개), 12, 13 로 answer=6이지만 5가 나오는 코드(숫자를 분리해서
+        판별하지 않음)
+        */
 	}
 
 }
