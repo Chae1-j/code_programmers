@@ -14,9 +14,9 @@ public class 잘라서배열로저장하기 {
 		Scanner sc = new Scanner(System.in);
 		String my_str = sc.next();
 		int n = sc.nextInt();
-		String[] answer = new String[Math.(my_str.length()/n)];
+		//String[] answer = new String[3];
 		
-		System.out.println(answer.length);
+		//System.out.println(answer.length);
 //		ArrayList<String> list = new ArrayList<>();
 //		for(int i = 0; i < my_str.length()-n+1; i += n) {
 //			list.add(my_str.substring(i, i+n));
@@ -26,7 +26,7 @@ public class 잘라서배열로저장하기 {
 //			answer[i] = list.get(i);
 //		}
 //		System.out.println(list);
-		System.out.println(Arrays.toString(answer));
+		//System.out.println(Arrays.toString(answer));
 	}
 
 }
