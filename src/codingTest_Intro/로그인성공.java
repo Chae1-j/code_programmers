@@ -11,16 +11,18 @@ public class 로그인성공 {
 			- 로그인이 실패했을 때 아이디가 일치하는 회원이 없다면 “fail”를, 아이디는 일치하지만 비밀번호가 
 			  일치하는 회원이 없다면 “wrong pw”를 return 합니다.
 		 */
-		String[] id_pw = {"meosseug", "1234"};
+		String[] id_pw = {"meosseugi", "12345"};
 		String[][] db = {
 							{"rardss", "123"},
 							{"yyoom", "1234"},
 							{"meosseugi", "1234"}
 						};
-		String answer = "wrong";
+		String answer = "fail";
 		for(int i = 0; i < db.length; i++) {
 			if(db[i][0].equals(id_pw[0]) && db[i][1].equals(id_pw[1])) {
 				answer = "login";
+			} else if(db[i][0].equals(id_pw[0]) && !db[i][1].equals(id_pw[1])) {
+				answer = "wrong pw";
 			}
 		}
 		System.out.println(answer);
