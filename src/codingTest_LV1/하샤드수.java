@@ -1,5 +1,6 @@
 package codingTest_LV1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class 하샤드수 {
@@ -13,20 +14,30 @@ public class 하샤드수 {
 		Scanner sc = new Scanner(System.in);
 		int x = sc.nextInt();
 		boolean answer = true;
-		String xStr = Integer.toString(x);
-		System.out.println(xStr + "?");
-		int hab = 1;
-		if(xStr.length() > 1) {
-			for(int i = 0; i < xStr.length(); i++) {
-				System.out.println(Integer.valueOf(xStr.charAt(i)));
-				hab += Integer.valueOf(xStr.charAt(i));
-			}
-		}
-		System.out.println("합 : " + hab);
-		if(x%hab > 0) {
-			answer = false;
+		String[] xArr = Integer.toString(x).split("");
+//		System.out.println(xStr + "?");
+//		int hab = 1;
+//		if(xStr.length() > 1) {
+//			for(int i = 0; i < xStr.length(); i++) {
+//				System.out.println(Integer.valueOf(xStr.charAt(i)));
+//				hab += Integer.valueOf(xStr.charAt(i));
+//			}
+//		}
+//		System.out.println("합 : " + hab);
+//		if(x%hab > 0) {
+//			answer = false;
+//		
+//		System.out.println(Arrays.toString(xArr) + "문자열 변환값");
+		int hab = 0;
+		for(int i = 0; i < xArr.length; i++) {
+			hab += Integer.valueOf(xArr[i]);
 		}
 		
+		if(xArr.length >= 2) {
+			if(x%hab!=0) {
+				answer = false;
+			}
+		}
 		System.out.println(answer);
 	}
 

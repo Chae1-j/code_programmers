@@ -1,5 +1,6 @@
 package codingTest_LV1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class 핸드폰번호가리기 {
@@ -12,12 +13,26 @@ public class 핸드폰번호가리기 {
 		 */
 		Scanner sc = new Scanner(System.in);
 		String phone_number = sc.next();
-		String str1 = phone_number.substring(0,phone_number.length()-4);
-		String str2 = phone_number.substring(phone_number.length()-4,phone_number.length());
-		for(int i = 0; i < str1.length(); i++) {
-			str1.replace(str1.charAt(i), '*');
+//		StringBuilder sb = new StringBuilder();
+		String answer = "";
+		
+		ArrayList list = new ArrayList<>();
+		for(int i = 0; i < phone_number.length(); i++) {
+			list.add(phone_number.charAt(i));
 		}
- 		String answer = str1 + str2;
+		for(int i = 0; i < list.size()-4;i++) {
+			list.set(i, "*");
+		}
+		for(int i = 0; i < list.size(); i++) {
+			answer += list.get(i);
+		}
+		//sb.append(phone_number);
+		//sb.replace(0, phone_number.length()-4, "*");
+		// 현재 문제점 ? 자릿수 만큼 *가 생성되지 않고 *만 출력됨
+		//String str1 = phone_number.substring(0,phone_number.length()-4);
+		//String str2 = phone_number.substring(phone_number.length()-4,phone_number.length());
+		
+ 		//String answer = str1 + str2;
 		System.out.println(answer);
 	}
 

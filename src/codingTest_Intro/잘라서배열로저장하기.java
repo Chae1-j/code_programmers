@@ -14,6 +14,22 @@ public class 잘라서배열로저장하기 {
 		Scanner sc = new Scanner(System.in);
 		String my_str = sc.next();
 		int n = sc.nextInt();
+		int size = my_str.length()/n;
+
+		if(my_str.length()%n!=0) {
+			size += 1;
+		}
+		String[] answer = new String[size];
+		for(int i = 0; i < answer.length; i++) {
+			if(i==0) {
+				answer[i]= my_str.substring(0, n);
+			} else if(i>0 && i < size-1) {
+				answer[i] = my_str.substring(n*i, (n*i)+n);
+			} else {
+				answer[i] = my_str.substring(n*i, my_str.length());
+			}
+		}
+		System.out.println(size);
 		//String[] answer = new String[3];
 		
 		//System.out.println(answer.length);
@@ -26,7 +42,7 @@ public class 잘라서배열로저장하기 {
 //			answer[i] = list.get(i);
 //		}
 //		System.out.println(list);
-		//System.out.println(Arrays.toString(answer));
+		System.out.println(Arrays.toString(answer));
 	}
 
 }
