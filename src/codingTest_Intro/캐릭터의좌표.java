@@ -13,39 +13,21 @@ public class 캐릭터의좌표 {
 		 * 시작할 때 키 입력이 모두 끝난 뒤에 캐릭터의 좌표 [x, y]를 return하도록 solution 함수를 완성해주세요.
 		 * 
 		 */
-		String[] keyinput = {"down", "down", "down", "down", "down"};
-		int[] board = {7,9};
+		String[] keyinput = {"left", "left", "left", "left", "right", "right", "right", "right"};
+		int[] board = {5,5};
 		int[] answer = new int[2];
 		int x = board[0]/2;
 		int y = board[1]/2;
-		System.out.println("x? " + x);
+//		System.out.println("x? " + x);
 		for(int i = 0; i < keyinput.length; i++) {
-			if(keyinput[i].equals("left")) {
+			if(keyinput[i].equals("left") && Math.abs(answer[0]) < x) {
 				answer[0] -= 1;
-				System.out.println("l일 때 : " + answer[0]);
-				if(Math.abs(answer[0]) > x) {
-					answer[0] += 1;
-					break;
-				}
-			} else if(keyinput[i].equals("right")) {
-				answer[0] += 1;
-				System.out.println("r일 때 : " + answer[0]);
-				if(Math.abs(answer[0]) > x) {
-					answer[0] -= 1;
-					break;
-				}
-			} else if(keyinput[i].equals("down")) {
+			} else if(keyinput[i].equals("right") && Math.abs(answer[0]) < x) {
+				answer[0] += 1;	
+			} else if(keyinput[i].equals("down") && Math.abs(answer[1]) < y) {
 				answer[1] -= 1;
-				if(Math.abs(answer[1]) > y) {
-					answer[1] += 1;
-					break;
-				}
-			} else if(keyinput[i].equals("up")) {
+			} else if(keyinput[i].equals("up") && Math.abs(answer[1]) < y) {
 				answer[1] += 1;
-				if(Math.abs(answer[1]) > y) {
-					answer[1] -= 1;
-					break;
-				}
 			}
 		}
 		// 0625 프로그래머스 1,3,8,9 번 실패
