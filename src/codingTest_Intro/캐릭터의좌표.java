@@ -2,6 +2,7 @@ package codingTest_Intro;
 
 import java.util.Arrays;
 
+
 public class 캐릭터의좌표 {
 
 	public static void main(String[] args) {
@@ -13,20 +14,41 @@ public class 캐릭터의좌표 {
 		 * 시작할 때 키 입력이 모두 끝난 뒤에 캐릭터의 좌표 [x, y]를 return하도록 solution 함수를 완성해주세요.
 		 * 
 		 */
-		String[] keyinput = {"left", "left", "left", "left", "right", "right", "right", "right"};
+		String[] keyinput = {"right", "right", "right", "right","left", "left", "left", "left"};
 		int[] board = {5,5};
 		int[] answer = new int[2];
 		int x = board[0]/2;
 		int y = board[1]/2;
-//		System.out.println("x? " + x);
+//		for(int i = 0; i < keyinput.length; i++) {
+//			if(keyinput[i].equals("left")) {
+////				if(Math.abs(answer[0]) < x) {
+////					continue;
+////				}
+//				answer[0] -= 1;
+//			} else if(keyinput[i].equals("right")) {
+////				if(Math.abs(answer[0]) < x) {
+////					continue;
+////				}
+//				answer[0] += 1;
+//			} else if(keyinput[i].equals("down")) {
+//				answer[1] -= 1;
+//			} else if(keyinput[i].equals("up")) {
+//				answer[1] += 1;
+//			}
+//		}
+		
 		for(int i = 0; i < keyinput.length; i++) {
-			if(keyinput[i].equals("left") && Math.abs(answer[0]) < x) {
+			if(keyinput[i].equals("left")) {
+				if(answer[0]==-x) continue;
 				answer[0] -= 1;
-			} else if(keyinput[i].equals("right") && Math.abs(answer[0]) < x) {
+			} else if(keyinput[i].equals("right")) {
+				if(answer[0]==x) continue;
 				answer[0] += 1;	
-			} else if(keyinput[i].equals("down") && Math.abs(answer[1]) < y) {
+			} else if(keyinput[i].equals("down")) {
+				if(answer[1]==-y) continue;
 				answer[1] -= 1;
-			} else if(keyinput[i].equals("up") && Math.abs(answer[1]) < y) {
+			} else if(keyinput[i].equals("up")) { // && Math.abs(answer[1]) < y가 있으면 모든 방향키가 작동안됨을 유의
+				if(answer[1]==y) continue;
 				answer[1] += 1;
 			}
 		}
