@@ -13,31 +13,65 @@ public class 다항식더하기 {
 		 * return 합니다.
 		 */
 //		Scanner sc = new Scanner(System.in);
-		String polynomial = "30 + 10";
-		String answer = "";
-		int xnum = 0;
-		int num = 0;
-		String[] p_str = polynomial.split(" ");
-		for(int i = 0; i < p_str.length; i++) {
-			int len = p_str[i].length();
-			if(len > 1 && p_str[i].contains("x") ) {
-				xnum += Integer.valueOf(p_str[i].substring(len-2,len-1));
-			} else if(p_str[i].equals("x")) {
-				xnum++;
-			} else if(!p_str[i].contains("x") && !p_str[i].equals("+")) {
-				num += Integer.valueOf(p_str[i]);
-			}
-		}
-		
-		if(num!=0) {
-			answer= String.valueOf(xnum)+ "x" + " + "+ String.valueOf(num);
-		} else if(xnum==0) {
-			answer = String.valueOf(num);
-		} else if(num==0) {
-			answer = String.valueOf(xnum)+"x";
-		} else if(num==0 && xnum==0) {
-			 answer = "0";
-		}
+		String polynomial = "30x + 10";
+//		String answer = "";
+//		int xnum = 0;
+//		int num = 0;
+//		String[] p_arr = polynomial.split(" ");
+//		for(int i = 0; i < p_arr.length; i++) {
+//			int len = p_arr[i].length();
+//			if(len > 1 && p_arr[i].contains("x") ) {
+//				xnum += Integer.valueOf(.substring(len-2,len-1));
+//			} else if(p_arr[i].equals("x")) {
+//				xnum++;
+//			} else if(!p_arr[i].contains("x") && !p_arr[i].equals("+")) {
+//				num += Integer.valueOf(p_arr[i]);
+//			}
+//		}
+//		
+//		if(num!=0) {
+//			answer= String.valueOf(xnum)+ "x" + " + "+ String.valueOf(num);
+//		} else if(xnum==0) {
+//			answer = String.valueOf(num);
+//		} else if(num==0) {
+//			answer = String.valueOf(xnum)+"x";
+//		} else if(num==0 && xnum==0) {
+//			 answer = "0";
+//		}
+        String answer = "";
+        String[] arr = polynomial.split(" +");
+        int strNum = 0;
+        int num = 0;
+
+        for (String s : arr) {
+            if (s.equals("x")) {
+                strNum += 1;
+            } else if (s.contains("x")) {
+                strNum += Integer.parseInt(s.substring(0, s.length() - 1));
+            } else if (!s.equals("+")) {
+                num += Integer.parseInt(s);
+            }
+        }
+
+        if (strNum != 0 && num == 0) {
+            if (strNum == 1) {
+                answer = "x";
+            } else {
+                answer = strNum + "x";
+            }
+        } 
+
+        if (strNum != 0 && num != 0) {
+            if (strNum == 1) {
+                answer = "x" + " + " + num;
+            } else {
+                answer = strNum + "x" + " + " + num;
+            }
+        }
+
+        if (strNum == 0 && num != 0) {
+            answer = String.valueOf(num);
+        }
 		System.out.println(answer);
 	}
 
