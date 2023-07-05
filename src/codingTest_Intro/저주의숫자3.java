@@ -23,14 +23,15 @@ public class 저주의숫자3 {
 		int n = sc.nextInt();
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		int answer = 0; 
-		for(int i = 0; i < 150; i++) {
+		for(int i = 0; i < 200; i++) {
 			String s = String.valueOf(i);
 			if(i%3!=0 && !s.contains("3")) {
 				list.add(i);
 			}
 //			answer = list.indexOf(n); indexOf("값")이므로 해당 값의 인덱스를 반환하는 것임.
 		}
-		System.out.println(list);
+		
+		System.out.println(list.size());
 		answer = list.get(n-1); // index는 0부터 시작함을 유
 		System.out.println("answer = " + answer);
 	}
