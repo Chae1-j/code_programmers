@@ -1,8 +1,16 @@
 package codingTest_Intro;
 
+import java.util.Arrays;
+
 public class 평행 {
 
 	public static void main(String[] args) {
+		/*
+		 *점 네 개의 좌표를 담은 이차원 배열  dots가 다음과 같이 매개변수로 주어집니다.
+		 *			[[x1, y1], [x2, y2], [x3, y3], [x4, y4]]
+		 * 주어진 네 개의 점을 두 개씩 이었을 때, 두 직선이 평행이 되는 경우가 있으면 1을 없으면 0을 
+		 * return 하도록 solution 함수를 완성해보세요.
+		 */
 //		int x1 = dots[0][0];
 //        int y1 = dots[0][1];
 //        int x2 = dots[1][0];
@@ -16,6 +24,23 @@ public class 평행 {
 //        double slope2 = (double) (y4 - y3) / (x4 - x3);
 //        
 //        return slope1 == slope2 ? 0 : 1;
+		int[][] dots = {{1,4},
+						{9,2},
+						{3,8},
+						{11,6}};
+		int answer = 0;
+		int first = dots[0][0];
+		int second = dots[0][0];
+		int third = dots[0][0];
+		int fourth = dots[0][0];
+		int x = 0;
+		int y = 0;
+		for(int i = 0; i < dots.length; i++) {
+			if(dots[i][0] > first) {
+				first = dots[i][0];
+			}
+		}
+		System.out.println(answer);
 	}
 
 }
