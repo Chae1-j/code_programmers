@@ -37,7 +37,7 @@ public class 평행 {
 		int y = 0;
 		for(int i = 0; i < dots.length; i++) {
 			if(dots[i][0] > first) {
-				first = dots[i][0];
+				first = Math.max(dots[i][0],dots[i][0]);
 			}
 		}
 		System.out.println(answer);
