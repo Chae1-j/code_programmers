@@ -13,7 +13,7 @@ public class 이진수더하기 {
 		String bin1 = sc.next();
 		String bin2 = sc.next();
 		String answer = "";
-		
+		answer =  Integer.toBinaryString(Integer.valueOf(bin1, 2)+Integer.valueOf(bin2, 2));    
 		
 		System.out.println(answer);
 				
