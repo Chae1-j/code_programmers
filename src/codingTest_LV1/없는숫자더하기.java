@@ -11,12 +11,16 @@ public class 없는숫자더하기 {
 		 */
 		int[] numbers = {};
 		int answer = -1;
-		Arrays.sort(numbers);
-		for(int i = 0; i < numbers.length; i++) {
-            if(numbers[i]!=i) {
-                answer += i;
-            }
-		}
+//		Arrays.sort(numbers);
+//		for(int i = 0; i < numbers.length; i++) {
+//            if(numbers[i]!=i) {
+//                answer += i;
+//            }
+//		}
+		for (int n : numbers) {
+            answer -= n;
+        }
+
 		System.out.println(answer);
 	}
 
