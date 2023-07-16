@@ -13,10 +13,9 @@ public class 없는숫자더하기 {
 		int answer = -1;
 		Arrays.sort(numbers);
 		for(int i = 0; i < numbers.length; i++) {
-			for(int j = 0; j <= 9; j++) {
-				
-			}
-			
+            if(numbers[i]!=i) {
+                answer += i;
+            }
 		}
 		System.out.println(answer);
 	}
