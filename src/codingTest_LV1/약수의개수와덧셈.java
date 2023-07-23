@@ -13,20 +13,32 @@ public class 약수의개수와덧셈 {
 		int left = sc.nextInt();
 		int right = sc.nextInt();
 		int answer = 0;
-		int cnt = 0;
-		for(int i = left; i <= right;i++) {
-			cnt = 0;
-			for(int j = 1; j <= i; j++) {
-				if(i%j==0) {
-					cnt++;
-				}
-			}
-			if(cnt%2==0) {
-				answer += cnt;
-			} else {
-				answer -= cnt;
-			}
-		}
+//		int cnt = 0;
+//		for(int i = left; i <= right;i++) {
+//			cnt = 1;
+//			for(int j = 1; j <= i; j++) {
+//				if(i%j==0) {
+//					cnt++;
+//				}
+//			}
+//			if(cnt%2==0) {
+//				answer += cnt;
+//			} else {
+//				answer -= cnt;
+//			}
+//		}
+		
+		//
+		for(int i=left; i<=right; i++) {
+        int cnt = 1;
+        
+        for(int j=1; j<=i/2; j++) {
+            if(i % j == 0) cnt++;
+        }
+        
+        if(cnt % 2 == 0) answer += i;
+        else answer -= i;
+    }
 		System.out.println(answer);
 	}
 
