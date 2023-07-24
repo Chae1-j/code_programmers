@@ -17,16 +17,19 @@ public class 없는숫자더하기 {
 //                answer += i;
 //            }
 //		}
-		int sum = 0; 
-		int total = 0;
-		for(int i = 0; i<10; i++) {
-			sum+=i;
-		}
-        
-        for(int i = 0; i<numbers.length; i++) {
-			total += numbers[i];
-		}
-            answer = sum - total;
+//		int sum = 0; 
+//		int total = 0;
+//		for(int i = 0; i<10; i++) {
+//			sum+=i;
+//		}
+//        
+//        for(int i = 0; i<numbers.length; i++) {
+//			total += numbers[i];
+//		}
+//            answer = sum - total;
+		for(int number : numbers) {
+            answer -= number;
+        }    
 		System.out.println(answer);
 	}
 
