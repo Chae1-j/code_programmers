@@ -3,7 +3,6 @@ package codingTest_Intro;
 import java.util.Scanner;
 
 public class 치킨쿠폰 {
-
 	public static void main(String[] args) {
 		/*
 		 * 프로그래머스 치킨은 치킨을 시켜먹으면 한 마리당 쿠폰을 한 장 발급합니다. 쿠폰을 열 장 모으면 치킨을 한 마리
@@ -13,10 +12,10 @@ public class 치킨쿠폰 {
 		Scanner sc = new Scanner(System.in);
 		int chicken = sc.nextInt();
 		int answer = -1;
-		while(chicken>0) {
-			answer += chicken/10;
+		while(chicken>=10) {
 			System.out.println("치킨 마리 : " + answer);
-			chicken = chicken%10;
+			int free = chicken%10;
+			answer = chicken/10 + free;
 			System.out.println("남는 쿠폰 : " + chicken);
 		}
 		System.out.println(answer);
