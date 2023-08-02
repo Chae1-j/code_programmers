@@ -19,11 +19,12 @@ public class 이상한문자만들기 {
 		for(int i = 0; i < sStr.length; i++) {
 			for(int j = 0; j < sStr[i].length(); j++) {
 				if(j%2==0) {
-					sStr[i] += String.valueOf(sStr[i].charAt(j)).toUpperCase();
+					answer += String.valueOf(sStr[i].charAt(j)).toUpperCase();
 				} else {
-					sStr[i] += String.valueOf(sStr[i].charAt(j));
+					answer += String.valueOf(sStr[i].charAt(j));
 				}
 			}
+			answer += " ";
 			System.out.println(Arrays.toString(sStr));
 		}
 		System.out.println(answer);
