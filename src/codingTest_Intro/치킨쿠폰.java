@@ -11,12 +11,20 @@ public class 치킨쿠폰 {
 		 */
 		Scanner sc = new Scanner(System.in);
 		int chicken = sc.nextInt();
-		int answer = -1;
-		while(chicken>=10) {
-			System.out.println("치킨 마리 : " + answer);
-			int free = chicken%10;
-			answer = chicken/10 + free;
-			System.out.println("남는 쿠폰 : " + chicken);
+//		int answer = -1;
+//		while(chicken>=10) {
+//			System.out.println("치킨 마리 : " + answer);
+//			int free = chicken%10;
+//			answer = chicken/10 + free;
+//			System.out.println("남는 쿠폰 : " + chicken);
+//		}
+		int coupon = chicken;
+		int	answer = 0;
+
+		while (coupon >= 10) {
+			int leftCoupon = coupon % 10;
+			answer += coupon / 10;
+			coupon = leftCoupon + coupon / 10;
 		}
 		System.out.println(answer);
 	}
