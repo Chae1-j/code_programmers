@@ -16,18 +16,30 @@ public class 등수매기기 {
 						 {40,70},
 						 {50,80}};
 		int[] answer = new int[score.length];
-		ArrayList<Integer> list = new ArrayList();
-		for(int i=0; i < score.length;i++) {
-			list.add((score[i][0]+score[i][1])/2);
-		}
-		for(int i = 0; i < list.size(); i++) {
-			answer[i]=1;
-			for(int j = 0; j <list.size(); j++) {
-				if(list.get(i) <list.get(j)) answer[i]++;
-			}
-		} 
+//		ArrayList<Integer> list = new ArrayList();
+//		for(int i=0; i < score.length;i++) {
+//			list.add((score[i][0]+score[i][1])/2);
+//		}
+//		for(int i = 0; i < list.size(); i++) {
+//			answer[i]=1;
+//			for(int j = 0; j <list.size(); j++) {
+//				if(list.get(i) <list.get(j)) answer[i]++;
+//			}
+//		} 
 		// 테스트 케이스 3번 6번 실패, 소수점고
-		System.out.println(list);
+		//System.out.println(list);
+		float[] average = new float[score.length];
+        for(int i = 0; i < score.length; i++) {
+            average[i] = (float)((score[i][0] + score[i][1]) / 2.0);
+        }
+        
+        for(int j = 0; j < score.length; j++) {
+            int order = 1;
+            for(int k = 0; k < score.length; k++) {
+                if(average[j] < average[k]) order++;
+                answer[j] = order;
+            }
+        }
 		System.out.println(Arrays.toString(answer));
 	}
 
