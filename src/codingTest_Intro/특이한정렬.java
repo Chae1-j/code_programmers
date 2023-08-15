@@ -2,6 +2,7 @@ package codingTest_Intro;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class 특이한정렬 {
@@ -28,22 +29,46 @@ public class 특이한정렬 {
 //			}
 //			System.out.println(list);
 //		}
-        double[] order = new double[numlist.length];
+//        double[] order = new double[numlist.length];
+//        
+//        for(int i = 0; i < numlist.length; i++) {
+//            if(numlist[i] - n < 0) 
+//                // n을 을 때 음수 값인 경우, +0.5를 해서 같은 거리에 있는 양수 값보다 정렬을 했을 시 뒤로 밀리도록 함 
+//                order[i] = ((int)Math.abs(numlist[i] - n)) + 0.5;
+//            else 
+//                order[i] = numlist[i] - n; 
+//        }
+//        
+//        Arrays.sort(order); // 오름차순 정렬
+//        
+//        for(int i = 0; i < numlist.length; i++) {
+//            if(order[i] % 1 != 0) answer[i] = n - (int)order[i];
+//            else answer[i] = (int)order[i] + n;
+//        }
+		
+		List<Integer> list = new ArrayList<>();
+        List<Integer> answer1 = new ArrayList<>();
+        for (Integer num : numlist) list.add(num);
         
-        for(int i = 0; i < numlist.length; i++) {
-            if(numlist[i] - n < 0) 
-                // n을 을 때 음수 값인 경우, +0.5를 해서 같은 거리에 있는 양수 값보다 정렬을 했을 시 뒤로 밀리도록 함 
-                order[i] = ((int)Math.abs(numlist[i] - n)) + 0.5;
-            else 
-                order[i] = numlist[i] - n; 
+        int len = list.size();
+        for(int j = 0 ; j <  len; j++){
+            int minDif = 10000;
+            int minNum = 0;
+            
+            for(int i = 0 ; i < list.size() ; i++){
+                if(Math.abs(minDif) > Math.abs(list.get(i) - n)){
+                    minNum = list.get(i);
+                    minDif = Math.abs(list.get(i) - n);
+                }
+                else if(Math.abs(minDif) == Math.abs(list.get(i) - n)){
+                    System.out.println("list.get(i)");
+                    if(minNum < list.get(i)) minNum = list.get(i);
+                }
+            }
+            answer1.add(minNum);
+            list.remove(Integer.valueOf(minNum));
         }
-        
-        Arrays.sort(order); // 오름차순 정렬
-        
-        for(int i = 0; i < numlist.length; i++) {
-            if(order[i] % 1 != 0) answer[i] = n - (int)order[i];
-            else answer[i] = (int)order[i] + n;
-        }
+		
 		System.out.println(Arrays.toString(answer));
 	}
 
