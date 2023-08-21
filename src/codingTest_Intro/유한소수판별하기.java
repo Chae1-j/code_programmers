@@ -18,41 +18,27 @@ public class 유한소수판별하기 {
 		Scanner sc = new Scanner(System.in);
 		int a = sc.nextInt();
 		int b = sc.nextInt();
-		int answer = 1;
-		ArrayList<Integer> bj = new ArrayList<Integer>();
-		ArrayList<Integer> bm = new ArrayList<Integer>();
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		int answer = 2;
+		int gcd = 1;
 		
-		for(int i=1; i <= a; i++)	if(a%i==0) bj.add(i);
-		for(int i=1; i <= b; i++)	if(a%i==0) bm.add(i);
-		
-		for(int i = 0; i < bj.size(); i++) {
-			for(int j = 0; j < bm.size();j++) {
-				if(bj.get(i) == bm.get(j)) {
-					list.add(bj.get(i));
-				}
+		for(int i = 1; i <= a && i <= b; i++) {
+			if(a%i==0 && b%i==0) {
+				gcd = i;
 			}
 		}
-		if(a%list.get(list.size()-1)==0 && b%list.get(list.size()-1)==0) {
-			a = a/list.get(list.size()-1);
-			b = b/list.get(list.size()-1);
-		} // 분자와 분모를 최대공약수로 나누기
+		int min = a*b/gcd;
+		int i = b/gcd;
 		
-		// if(b%2==0 || b%5==0) answer = 1; 분모의 약수. 2와 5만 들어있는 경우가 아닌 2와 5가 포함되어있냐는 if문
-		list.removeAll(list);
-		for(int i = 2; i <=b ; i++) {
-			if(b%i==0) {
-				list.add(i);
-				b /= i;
-			}
+		while(i%2==0 || i%5 ==0) {
+			if(i%2==0) i /= 2;
+			if(i%5==0) i /= 5;
+			if(i==1) break;
 		}
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i) != 2 || list.get(i) != 5) {
-
-			}
+		
+		if(i == 1) {
+			answer = 1;
 		}
-//		System.out.println("a = " + a + ", b = " + b);
-		System.out.println(list);
+		
 		System.out.println(answer);
 	}
 
