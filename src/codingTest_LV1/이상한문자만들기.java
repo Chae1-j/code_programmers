@@ -14,19 +14,29 @@ public class 이상한문자만들기 {
 		 */
 		Scanner sc = new Scanner(System.in);
 		String s = "try hello world";
-		String[] sStr = s.split(" ");
 		String answer = "";
-		for(int i = 0; i < sStr.length; i++) {
-			for(int j = 0; j < sStr[i].length(); j++) {
-				if(j%2==0) {
-					answer += String.valueOf(sStr[i].charAt(j)).toUpperCase();
-				} else {
-					answer += String.valueOf(sStr[i].charAt(j));
-				}
-			}
-			answer += " ";
-			System.out.println(Arrays.toString(sStr));
-		}
+		int cnt = 0;
+        String[] arr = s.split("");
+
+        for(String str : arr) {
+            cnt = str.contains(" ") ? 0 : cnt + 1;
+            answer += cnt % 2 == 0 ? str.toLowerCase() : str.toUpperCase(); 
+        }
+        
+        
+//		String[] sStr = s.split(" ");
+//		String answer = "";
+//		for(int i = 0; i < sStr.length; i++) {
+//			for(int j = 0; j < sStr[i].length(); j++) {
+//				if(j%2==0) {
+//					answer += String.valueOf(sStr[i].charAt(j)).toUpperCase();
+//				} else {
+//					answer += String.valueOf(sStr[i].charAt(j));
+//				}
+//			}
+//			answer += " ";
+//			System.out.println(Arrays.toString(sStr));
+//		}
 		System.out.println(answer);
 	}
 
