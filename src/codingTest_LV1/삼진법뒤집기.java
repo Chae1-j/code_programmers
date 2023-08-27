@@ -17,18 +17,21 @@ public class 삼진법뒤집기 {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		while(n>0) {
 			list.add(n%3);
+			System.out.println("3진법 n : " + list);
 			n /= 3;
 		}
-		Collections.reverse(list);
+//		Collections.reverse(list);
+		System.out.println("list reverse : " + list);
 		for(int i = 0; i < list.size();i++) {
 			if(list.get(i)!= 0) {
-				for(int j = 1; j <= i; j++) {
-					answer *= 3;
-				}
+				answer *= 3;
+				System.out.println("3의 배수인 answer = " + answer + " " + i);
+
 				answer *= list.get(i);
+				System.out.println("3진법 > 10진법 변경후 answer : " + answer);
 			}
 		}
-		if(list.get(0)!= 0) answer += 1;
+		if(list.get(0)!= 0) answer += list.get(0);
 		System.out.println("answer : " + answer);
 	}
 
