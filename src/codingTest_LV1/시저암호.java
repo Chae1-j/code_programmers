@@ -16,14 +16,17 @@ public class 시저암호 {
 		String s = sc.next();
 		int n = sc.nextInt();
 		String answer = "";
-		Character[] arr = String.to(s.split(""));
-		
-		for(int i = 0; i < arr.length; i++) {
-			if(arr[i]!=null) {
-				arr[i] = Character.valueOf(arr[i])
-			}
-		}
-		System.out.println(Arrays.toString(arr));
+        for(int i=0; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            
+            if(Character.isLowerCase(ch)) {
+                ch = (char) ((ch - 'a' + n) % 26 + 'a');
+            } else if(Character.isUpperCase(ch)) {
+                ch = (char) ((ch - 'A' + n) % 26 + 'A');
+            }
+            
+            answer += ch;
+        }
 		System.out.println(answer);
 	}
 
