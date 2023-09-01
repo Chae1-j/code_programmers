@@ -19,20 +19,30 @@ public class 숫자문자열과영단어 {
 		 */
 		Scanner sc = new Scanner(System.in);
 		String s = sc.next();
-		HashMap<String, String> hash = new HashMap<String, String>();
-		hash.put("one", "1");
-		hash.put("two", "2");
-		hash.put("three", "3");
-		hash.put("four", "4");
-		hash.put("five", "5");
-		hash.put("six", "6");
-		hash.put("seven", "7");
-		hash.put("eight", "8");
-		hash.put("nine", "9");
-		hash.put("zero", "0");
-		for(int i = 0; i < hash.size(); i++) { 
-			
+		int answer = 0;
+		String[] num = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+		String[] words = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+		for (int i = 0; i < 10; i++) {
+			s = s.replace(words[i], num[i]);
 		}
+		answer = Integer.valueOf(s);
+		
+		System.out.println(answer);
+//		HashMap<String, String> hash = new HashMap<String, String>();
+//		hash.put("one", "1");
+//		hash.put("two", "2");
+//		hash.put("three", "3");
+//		hash.put("four", "4");
+//		hash.put("five", "5");
+//		hash.put("six", "6");
+//		hash.put("seven", "7");
+//		hash.put("eight", "8");
+//		hash.put("nine", "9");
+//		hash.put("zero", "0");
+//		s = s.replace(0, 0)
+//		for(int i = 0; i < hash.size(); i++) { 
+//			if(s.contains()) {
+//		}
 
 	}
 
