@@ -1,6 +1,7 @@
 package codingTest_LV2;
 
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class JadenCase문자열만들기 {
 
@@ -12,16 +13,30 @@ public class JadenCase문자열만들기 {
 		 */
 		String s = "3people   unFollowed me";
 		String answer = "";
-		StringBuffer sb = new StringBuffer();
-		String[] sArr = s.split(" ");
-		for(String str : sArr) {
-			if(!str.isEmpty()) {
-				str = str.substring(0,1).toUpperCase() + str.substring(1,str.length()).toLowerCase();
-				System.out.println("반복문 내의 str : " + str);
-				sb.append(str);
-				sb.append(" ");
-			} // 공백이 여러개일 경우 empty 판단
+		
+		s = s.toLowerCase(); //처음부터 다 소문자로 바꿔버리기
+
+		StringTokenizer st = new StringTokenizer(s, " ", true);
+		StringBuilder sb = new StringBuilder();
+		while (st.hasMoreTokens()) {
+			String word = st.nextToken();
+			// 만약 단어가 공백이면 그대로 출력해주고
+			if (word.equals(" "))
+				sb.append(word);
+			else { //아니라면 첫글자 대문자 변환해주기
+				sb.append(word.substring(0, 1).toUpperCase() + word.substring(1));
+			}
 		}
+//		StringBuffer sb = new StringBuffer();
+//		String[] sArr = s.split(" ");
+//		for(String str : sArr) {
+//			if(!str.isEmpty()) {
+//				str = str.substring(0,1).toUpperCase() + str.substring(1,str.length()).toLowerCase();
+//				System.out.println("반복문 내의 str : " + str);
+//				sb.append(str);
+//				sb.append(" ");
+//			} // 공백이 여러개일 경우 empty 판단
+//		}
 		answer = sb.toString().trim();
 		System.out.println(answer);
 	}
