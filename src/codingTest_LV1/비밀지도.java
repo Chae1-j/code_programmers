@@ -30,11 +30,7 @@ public class 비밀지도 {
 				str += Integer.toString(arr1[i] % 2);
 				arr1[i] /= 2;	
 			}
-//			if(str.length() != n) {
-//				str = "0" + sb.reverse().toString();
-//			} else {
-//				str = sb.reverse().toString();
-//			}
+			
 			System.out.println("str : " + str);
 		}
 		String[] answer = new String[n];
