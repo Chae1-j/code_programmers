@@ -22,19 +22,31 @@ public class 비밀지도 {
 		int n = 5;
 		int[] arr1 = {9,20,28,18,11};
 		int[] arr2 = {30,1,21,17,28};
+		String[] answer = new String[n];
 		String str = "";
+		String str2 = "";
 		StringBuffer sb = new StringBuffer();
 		for(int i = 0; i < n; i++) {
-			str = "";
-			while(arr1[i]>0) {
-				str += Integer.toString(arr1[i] % 2);
-				arr1[i] /= 2;	
-			}
+			str = Integer.toBinaryString(arr1[i]);
+//			System.out.println(arr1[i] + "의 이진수 - arr1 : " + str);
+			str2 = Integer.toBinaryString(arr2[i]);
+//			System.out.println(arr2[i] + "의 이진수 : " + str2);
+			str = "0".repeat(n - str.length()) + str;
+			str2 = "0".repeat(n - str2.length()) + str2;
 			
-			System.out.println("str : " + str);
+			String[] biArr1 = str.split("");
+			String[] biArr2 = str2.split("");
+			System.out.println("biArr1[] : "+Arrays.toString(biArr1));
+			System.out.println("biArr2[] : "+Arrays.toString(biArr2));
+			sb.delete(0, n);
+			for(int j = 0 ; j < n; j++) {
+				if(biArr1[j].equals("1") || biArr2[j].equals("1")) sb.append("#");
+				else sb.append(" ");	
+			}
+			answer[i] = sb.toString();
 		}
-		String[] answer = new String[n];
-//		System.out.println(Arrasys.toString(answer));
+		
+		System.out.println(Arrays.toString(answer));
 	}
 
 }
