@@ -16,10 +16,27 @@ public class 카드뭉치 {
 		 * cards1, cards2와 원하는 단어 배열 goal이 매개변수로 주어질 때, cards1과 cards2에 적힌 단어들로 goal를 
 		 * 만들 수 있다면 "Yes"를, 만들 수 없다면 "No"를 return하는 solution 함수를 완성해주세요.
 		 */
-		String[] cards1 = {};
-		String[] cards2 = {};
-		String[] goal = {};
-		String answer = "";
+		String[] cards1 = {"i", "water", "drink"};
+		String[] cards2 = {"want", "to"};
+		String[] goal = {"i", "want", "to", "drink", "water"};
+		String answer = "Yes";
+		
+		int	idx1 = 0;
+        int idx2 = 0;
+
+        for (int i = 0; i < goal.length; i++) {
+            if(idx1 < cards1.length && goal[i].equals(cards1[idx1])) {
+                idx1++;
+                continue;
+            }
+
+            if(idx2 < cards2.length && goal[i].equals(cards2[idx2])) {
+                idx2++;
+                continue;
+            }
+
+            answer = "No";
+        }
 		
 		System.out.println(answer);
 	}
