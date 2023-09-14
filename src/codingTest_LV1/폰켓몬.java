@@ -2,6 +2,7 @@ package codingTest_LV1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class 폰켓몬 {
 
@@ -28,15 +29,24 @@ public class 폰켓몬 {
 		 */
 		int[] nums = {3,3,3,2,2,2};
 		int answer = 0;
-		Arrays.sort(nums);
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		for(int i = 0; i < nums.length-1; i++) {
-			if(list.size() > nums.length/2) break;
-			if(nums[i] != nums[i+1]) {
-				list.add(nums[i]);
-			}
+//		Arrays.sort(nums);
+//		ArrayList<Integer> list = new ArrayList<Integer>();
+//		for(int i = 0; i < nums.length-1; i++) {
+//			if(list.size() > nums.length/2) break;
+//			if(nums[i] != nums[i+1]) {
+//				list.add(nums[i]);
+//			}
+//		}
+//		answer = list.size();
+		
+		
+		HashSet<Integer> set = new HashSet<>();
+		for(int n : nums) {
+			set.add(n);
 		}
-		answer = list.size();
+		if(nums.length/2 >= set.size()) answer = set.size();
+		else answer = nums.length/2;
+		
 		System.out.println(answer);
 	}
 
