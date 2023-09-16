@@ -26,9 +26,8 @@ public class 과일상자 {
 		int len = score.length;
 		int answer = 0;
 		Arrays.sort(score);
-		for(int i = score.length; i >= 0; i -= m) {
-			int[] mArr = Arrays.copyOfRange(score, i, m);
-			System.out.println(Arrays.toString(mArr));
+		for(int i = score.length - m ; i >= 0; i -= m) {
+			answer += score[i] * m;
 		}
 		
 		System.out.println(answer);
