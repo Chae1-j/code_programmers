@@ -14,9 +14,12 @@ public class 소수만들기 {
 			for(int j = i + 1; j < nums.length-1; j++) {
 				for(int k = j + 1; k < nums.length; k++) {
 					int sum = nums[i] + nums[j] + nums[k];
-					if(sum % 2 != 0 && sum % 3 != 0 && sum % 5 != 0) {
+					if(sum % 2 != 0 && sum % 3 != 0 && sum % 5 != 0 && sum % 7 != 0) {
 						answer++;
+						System.out.println("소수 sum = " + sum);
 					}
+					if(sum == 7) answer++;
+					System.out.println("sum = " + sum);
 				}
 			}
 		}
