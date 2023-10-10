@@ -1,5 +1,7 @@
 package codingTest_LV1;
 
+import java.util.ArrayList;
+
 public class 소수만들기 {
 
 	public static void main(String[] args) {
@@ -10,19 +12,40 @@ public class 소수만들기 {
 		 */
 		int[] nums = {1,2,7,6,4};
 		int answer = 0;
-		for(int i = 0; i < nums.length-2; i++) {
-			for(int j = i + 1; j < nums.length-1; j++) {
-				for(int k = j + 1; k < nums.length; k++) {
-					int sum = nums[i] + nums[j] + nums[k];
-					if(sum % 2 != 0 && sum % 3 != 0 && sum % 5 != 0 && sum % 7 != 0) {
-						answer++;
-						System.out.println("소수 sum = " + sum);
-					}
-					if(sum == 7) answer++;
-					System.out.println("sum = " + sum);
-				}
-			}
-		}
+//		for(int i = 0; i < nums.length-2; i++) {
+//			for(int j = i + 1; j < nums.length-1; j++) {
+//				for(int k = j + 1; k < nums.length; k++) {
+//					int sum = nums[i] + nums[j] + nums[k];
+//					if(sum % 2 != 0 && sum % 3 != 0 && sum % 5 != 0 && sum % 7 != 0) {
+//						answer++;
+//						System.out.println("소수 sum = " + sum);
+//					}
+//					if(sum == 7) answer++;
+//					System.out.println("sum = " + sum);
+//				}
+//			}
+//		}
+		ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int i = 0; i < nums.length; i++) {
+        	if(i + 2 >= nums.length) break;
+        	for(int j = i + 1; j < nums.length; j++) {
+        		for(int h = j + 1; h < nums.length; h++) {
+        			list.add(nums[i] + nums[j] + nums[h]);
+        		}
+        	}
+        }
+        
+        for(Integer i : list) {
+        	int count = 2;
+        	answer++;
+        	while(count < i) {
+        		if(i % count == 0) {
+        			answer--;
+        			break;
+        		}
+        		count++;
+        	}
+        }
 		
 		System.out.println(answer);
 	}
