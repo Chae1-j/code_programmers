@@ -25,11 +25,19 @@ public class 덧칠하기 {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int m = sc.nextInt();
-		int[] section = {};
+		int[] section = {2,3,6};
 		int answer = 0;
-		for(int i = section.length; i >= 1; i--) {
-			
-		}
+		int first = section[0];
+        answer++;
+        
+        for (int i : section) {
+            if (first + m > i) {
+                continue;
+            }
+            
+            first = i;
+            answer++;
+        }
 		System.out.println(answer);
 	}
 
