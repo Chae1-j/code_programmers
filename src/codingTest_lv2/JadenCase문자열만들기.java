@@ -16,17 +16,17 @@ public class JadenCase문자열만들기 {
 		
 		s = s.toLowerCase(); //처음부터 다 소문자로 바꿔버리기
 
-		StringTokenizer st = new StringTokenizer(s, " ", true);
+//		StringTokenizer st = new StringTokenizer(s, " ", true);
 		StringBuilder sb = new StringBuilder();
-		while (st.hasMoreTokens()) {
-			String word = st.nextToken();
-			// 만약 단어가 공백이면 그대로 출력해주고
-			if (word.equals(" "))
-				sb.append(word);
-			else { //아니라면 첫글자 대문자 변환해주기
-				sb.append(word.substring(0, 1).toUpperCase() + word.substring(1));
-			}
-		}
+//		while (st.hasMoreTokens()) {
+//			String word = st.nextToken();
+//			// 만약 단어가 공백이면 그대로 출력해주고
+//			if (word.equals(" "))
+//				sb.append(word);
+//			else { //아니라면 첫글자 대문자 변환해주기
+//				sb.append(word.substring(0, 1).toUpperCase() + word.substring(1));
+//			}
+//		}
 //		StringBuffer sb = new StringBuffer();
 //		String[] sArr = s.split(" ");
 //		for(String str : sArr) {
@@ -37,7 +37,13 @@ public class JadenCase문자열만들기 {
 //				sb.append(" ");
 //			} // 공백이 여러개일 경우 empty 판단
 //		}
-		answer = sb.toString().trim();
+        String[] sp = s.toLowerCase().split("");
+        boolean flag = true;
+
+        for(String ss : sp) {
+            answer += flag ? ss.toUpperCase() : ss;
+            flag = ss.equals(" ") ? true : false;
+        }
 		System.out.println(answer);
 	}
 
