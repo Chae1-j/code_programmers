@@ -22,21 +22,24 @@ public class 기사단원의무기 {
 		int limit = sc.nextInt();
 		int power = sc.nextInt();
 		int answer = 0;
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		int cnt;
-		list.add(1);
+//		ArrayList<Integer> list = new ArrayList<Integer>();
+		int cnt = 0;
+//		list.add(1);
 		for(int i = 1; i <= number; i++) {
 			cnt = 0;
-			for(int j = 1; j <= i; j++) {
-				if((i/2)%j==0) cnt += 2;
+			for(int j = 1; j*j <= i; j++) {
+				if(j*j == i) cnt++;
+				else if(i%j == 0) cnt += 2;
 			}
-			list.add(cnt);
+//			list.add(cnt);
 		}
-		for(int i = 0; i < list.size(); i++) {
-			if(list.get(i)<=limit) answer += list.get(i);
-			else answer += power;
-		}
-		System.out.println(list);
+		
+		answer += cnt > limit ? power : cnt;
+//		for(int i = 0; i < list.size(); i++) {
+//			if(list.get(i)<=limit) answer += list.get(i);
+//			else answer += power;
+//		}
+//		System.out.println(list);
 		System.out.println(answer);
 	}
 
