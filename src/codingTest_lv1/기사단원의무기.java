@@ -22,25 +22,34 @@ public class 기사단원의무기 {
 		int limit = sc.nextInt();
 		int power = sc.nextInt();
 		int answer = 0;
-//		ArrayList<Integer> list = new ArrayList<Integer>();
-		int cnt = 0;
-//		list.add(1);
-		for(int i = 1; i <= number; i++) {
-			cnt = 0;
-			for(int j = 1; j*j <= i; j++) {
-				if(j*j == i) cnt++;
-				else if(i%j == 0) cnt += 2;
-			}
-//			list.add(cnt);
-		}
+		int[] arr = new int[number+1]; 
+		for(int i=1; i<=number; i++) {
+	    	arr[i] = i; 	
+	    	int cnt = 0; // 각 기사단원의 공격력을 계산하여 철 무게를 받을 변수
+	    	/*
+	    	 * for(int j=1; j <= Math.sqrt(arr[i]); j++) {  		   	
+	        		if(j == Math.sqrt(arr[i])) {
+	        			n++;   			
+	        		}
+	        		else if(arr[i] % j  == 0) {
+	        			n +=2;    	      
+	        		}
+	    	 */
+	    	for(int j=1; j*j <= arr[i]; j++) {  		   	
+	    		if(j*j == arr[i]) {
+	    			cnt++;   			
+	    		}
+	    		else if(arr[i] % j  == 0) {
+	    			cnt +=2;    	      
+	    		} 
+	            if(cnt > limit) { 
+	            	cnt = power;
+	            	break;
+	            }
+	        }    		
+	    	answer += cnt; 	
+	    }		
 		
-		answer += cnt > limit ? power : cnt;
-//		for(int i = 0; i < list.size(); i++) {
-//			if(list.get(i)<=limit) answer += list.get(i);
-//			else answer += power;
-//		}
-//		System.out.println(list);
-		System.out.println(answer);
 	}
 
 }
