@@ -2,6 +2,11 @@ package codingTest_lv1;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class 실패율 {
 
@@ -22,24 +27,49 @@ public class 실패율 {
 		int N = 5; 
 		int[] stages = {2, 1, 2, 6, 2, 4, 3, 3};
 		int[] answer = new int[N];
-		Arrays.sort(stages);
-		System.out.println(Arrays.toString(stages));
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		int cnt;
+//		Arrays.sort(stages);
+//		System.out.println(Arrays.toString(stages));
+//		ArrayList<Integer> list = new ArrayList<Integer>();
+//		int cnt;
+//
+//		for(int j = 1; j <= N; j++) {
+//			cnt = 0;
+//			for(int i = 0; i < stages.length; i++) {
+//				if(stages[i] == j) {
+//					cnt++;
+//				}
+//			}
+//			list.add(cnt);
+//		}
+//		for(int i = 0; i < list.size(); i++) {
+//			answer[i] = (list.get(i)/stages.length);
+//		}
+//		System.out.println(list);
+	        int noclear=0; 
+	        int player=stages.length;
+	        Map<Integer, Double> stagefail = new HashMap<Integer, Double>(); 
+	        for(int i=1; i<=N;i++){
+	            for(int s : stages){
+	                if(s==i) noclear++;
+	            }
+	            if(player==0) stagefail.put(i,0.0);
+	            else{
+	                stagefail.put(i,(double)noclear/player); 
+	                player -= noclear;
+	                noclear=0;
+	            }
+	        }
+	        List<Map.Entry<Integer, Double>> list_entries = new ArrayList<Map.Entry<Integer, Double>>(stagefail.entrySet());
+	        Collections.sort(list_entries, new Comparator<Map.Entry<Integer, Double>>() {
+	            public int compare(Map.Entry<Integer, Double> obj1, Map.Entry<Integer, Double> obj2) {
+	                return obj2.getValue().compareTo(obj1.getValue());
+	            }
+	        });
 
-		for(int j = 1; j <= N; j++) {
-			cnt = 0;
-			for(int i = 0; i < stages.length; i++) {
-				if(stages[i] == j) {
-					cnt++;
-				}
-			}
-			list.add(cnt);
-		}
-		for(int i = 0; i < list.size(); i++) {
-			answer[i] = (list.get(i)/stages.length);
-		}
-		System.out.println(list);
+	        int c=0;
+	        for(Map.Entry<Integer, Double> entry : list_entries) {
+	            answer[c]=entry.getKey(); c++;
+	        }
 		System.out.println(Arrays.toString(answer));
 		
 	}
