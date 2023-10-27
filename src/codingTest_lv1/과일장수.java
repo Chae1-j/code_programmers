@@ -3,7 +3,7 @@ package codingTest_lv1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class 과일상자 {
+public class 과일장수 {
 
 	public static void main(String[] args) {
 		/*

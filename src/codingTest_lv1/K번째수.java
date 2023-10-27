@@ -2,7 +2,7 @@ package codingTest_lv1;
 
 import java.util.Arrays;
 
-public class K번쨰수 {
+public class K번째수 {
 
 	public static void main(String[] args) {
 		/*
