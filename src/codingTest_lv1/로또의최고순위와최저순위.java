@@ -24,44 +24,119 @@ public class 로또의최고순위와최저순위 {
 		int[] lottos = {44, 1, 0, 0, 31, 25};
 		int[] win_nums = {31, 10, 45, 1, 6, 19};
 		int[] answer = new int[2];
-		Arrays.sort(lottos);
-		Arrays.sort(win_nums);
-		int cnt = 0;
-		int cnt2 = 0;
-		for(int i = 0; i < 6; i++) {
-			if(lottos[i] == 0) cnt2++;
-			for(int j = 0; j < 6; j++) {
-				if(lottos[i] == win_nums[j]) cnt++; 
-			}
-		}
-		if(cnt == 0) {
-			answer[0] = 1;
-			answer[1] = 6;
-		} else if(cnt > 0 && cnt < 6) {
-			answer[0] = 1;
-			switch(cnt) {
-				case 1 : 
-					answer[1] = 6;
-					break;
-				case 2 :
-					answer[1] = 5;
-					break;
-				case 3 : 
-					answer[1] = 4;
-					break;
-				case 4 : 
-					answer[1] = 3;
-					break;
-				case 5 : 
-					answer[1] = 2;
-					break;
-			}
-		} else {
-			answer[0] = 1;
-			answer[1] = 1;
-		}
-		
-		System.out.println(cnt);
+		// 1번 풀이방법
+		int zero = 0, same=0;
+        for(int i=0; i<lottos.length; i++){
+            if(lottos[i] == 0){
+                zero++;
+                continue;    
+            }
+            for(int j=0;j<win_nums.length; j++){
+                if(lottos[i] == win_nums[j])
+                    same++;
+            }
+        }
+        answer[0] = 7-(zero+same);
+        answer[1] = 7-same;
+        if(zero + same < 2)
+            answer[0] = answer[1] = 6;
+        if(answer[1] == 7)
+            answer[1]--;
+        // 2번 풀이방법
+//        HashSet<Integer> lotto_num = new HashSet<>();
+//        HashSet<Integer> win_num = new HashSet<>();
+//
+//        int zero_cnt = 0 ;
+//        for(int l : lottos) {
+//
+//            if(l != 0) {
+//                lotto_num.add(l);   
+//            }else {
+//                zero_cnt += 1;
+//            }
+//        }
+//
+//        for(int l : win_nums) {
+//            if(l != 0) {
+//                win_num.add(l); 
+//            }
+//        }
+//
+//        lotto_num.retainAll(win_num);  
+//
+////      result[0] = lotto_num.size();
+////      result[1] = lotto_num.size() + zero_cnt;
+//
+//        int max_cnt = lotto_num.size() + zero_cnt; 
+//        int min_cnt = lotto_num.size(); 
+//
+//
+//
+//        int[] answer = {0,0};
+//        answer[0] = ranking(max_cnt);
+//        answer[1] = ranking(min_cnt);
+//
+//
+//        return answer;
+//    }
+//
+//    public static int ranking(int cnt) {
+//
+//        if(cnt == 6) {
+//            return 1;
+//        }else if (cnt == 5) {
+//            return 2;
+//        }else if (cnt == 4) {
+//            return 3;
+//        }else if (cnt == 3) {
+//            return 4; 
+//        }else if (cnt == 2) {
+//            return 5; 
+//        }else {
+//            return 6;
+//        }
+//    }
+        
+        // 내 풀이		
+//		Arrays.sort(lottos);
+//		Arrays.sort(win_nums);
+//		int cnt = 0;
+//		int cnt2 = 0;
+//		for(int i = 0; i < 6; i++) {
+//			if(lottos[i] == 0) cnt2++;
+//			for(int j = 0; j < 6; j++) {
+//				if(lottos[i] == win_nums[j]) cnt++; 
+//			}
+//		}
+//		if(cnt == 0) {
+//			answer[0] = 1;
+//			answer[1] = 6;
+//		} else if(cnt > 0 && cnt < 6) {
+//			switch(cnt) {
+//				case 1 : 
+//					answer[1] = 6;
+//					break;
+//				case 2 :
+//					answer[1] = 5;
+//					break;
+//				case 3 : 
+//					answer[1] = 4;
+//					break;
+//				case 4 : 
+//					answer[1] = 3;
+//					break;
+//				case 5 : 
+//					answer[1] = 2;
+//					break;
+//			}
+//		} else {
+//			answer[0] = 1;
+//			answer[1] = 1;
+//		}
+//		
+//		System.out.println(cnt);
+        
+        
 		System.out.println(Arrays.toString(answer));
 	}
 
