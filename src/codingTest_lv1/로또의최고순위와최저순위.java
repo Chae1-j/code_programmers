@@ -23,25 +23,51 @@ public class 로또의최고순위와최저순위 {
 		 */
 		int[] lottos = {44, 1, 0, 0, 31, 25};
 		int[] win_nums = {31, 10, 45, 1, 6, 19};
-		int[] answer = new int[2];
-		// 1번 풀이방법
-		int zero = 0, same=0;
-        for(int i=0; i<lottos.length; i++){
-            if(lottos[i] == 0){
-                zero++;
-                continue;    
-            }
-            for(int j=0;j<win_nums.length; j++){
-                if(lottos[i] == win_nums[j])
-                    same++;
+//		int[] answer = new int[2];
+        int zeroCount = 0; // 알아볼 수 없는 번호(0)의 개수
+        int matchCount = 0; // 일치하는 번호의 개수
+        
+        for (int num : lottos) {
+            if (num == 0) {
+                zeroCount++;
+            } else {
+                for (int winNum : win_nums) {
+                    if (num == winNum) {
+                        matchCount++;
+                        break; // 일치하는 번호를 찾았으면 더이상 비교할 필요가 없음
+                    }
+                }
             }
         }
-        answer[0] = 7-(zero+same);
-        answer[1] = 7-same;
-        if(zero + same < 2)
-            answer[0] = answer[1] = 6;
-        if(answer[1] == 7)
-            answer[1]--;
+        
+        // 최고 순위 계산
+        int maxRank = 7 - (matchCount + zeroCount); // 6개 중 일치하는 번호의 개수와 알아볼 수 없는 번호(0)의 개수를 합산
+        
+        // 최저 순위 계산
+        int minRank = 7 - matchCount; // 6개 중 일치하는 번호의 개수
+        
+        // 최고 순위와 최저 순위를 배열에 담아서 반환
+        int[] answer = {Math.min(maxRank, 6), Math.min(minRank, 6)};
+
+
+		// 1번 풀이방법
+//		int zero = 0, same=0;
+//        for(int i=0; i<lottos.length; i++){
+//            if(lottos[i] == 0){
+//                zero++;
+//                continue;    
+//            }
+//            for(int j=0;j<win_nums.length; j++){
+//                if(lottos[i] == win_nums[j])
+//                    same++;
+//            }
+//        }
+//        answer[0] = 7-(zero+same);
+//        answer[1] = 7-same;
+//        if(zero + same < 2)
+//            answer[0] = answer[1] = 6;
+//        if(answer[1] == 7)
+//            answer[1]--;
         // 2번 풀이방법
 //        HashSet<Integer> lotto_num = new HashSet<>();
 //        HashSet<Integer> win_num = new HashSet<>();
