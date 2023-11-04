@@ -16,10 +16,51 @@ public class 체육복 {
 		 */
 		int n = (new Scanner(System.in)).nextInt();
 		int[] lost = {2,4}; // 도난당한 학생
-		int[] reserve = {1,3,5}; // 여벌체육복을 가져온 학생
-		int answer = 0;
+		int[] reserve = {3}; // 여벌체육복을 가져온 학생
+        int[] students = new int[n];
+        
+        // 학생 배열 초기화
+        for (int i = 0; i < n; i++) {
+            students[i] = 1; // 모든 학생은 체육복을 하나 가지고 있다고 가정
+        }
+        
+        // 도난당한 학생 표시
+        for (int l : lost) {
+            students[l - 1]--; // 도난당한 학생은 체육복을 하나 잃음
+        }
+        
+        // 여벌의 체육복 가져온 학생 표시
+        for (int r : reserve) {
+            students[r - 1]++; // 여벌의 체육복을 가져온 학생은 체육복을 하나 더 가짐
+        }
+        
+        // 체육복 빌려주기
+        for (int i = 0; i < n; i++) {
+            if (students[i] == 0) {
+                // 도난당한 학생인 경우
+                if (i > 0 && students[i - 1] == 2) {
+                    // 바로 앞 번호 학생이 여벌의 체육복을 가지고 있는 경우
+                    students[i]++;
+                    students[i - 1]--;
+                } else if (i < n - 1 && students[i + 1] == 2) {
+                    // 바로 뒷 번호 학생이 여벌의 체육복을 가지고 있는 경우
+                    students[i]++;
+                    students[i + 1]--;
+                }
+            }
+        }
+        
+        // 체육수업을 들을 수 있는 학생 수 세기
+        int answer = 0;
+        for (int i = 0; i < n; i++) {
+            if (students[i] >= 1) {
+                answer++;
+            }
+        }
+        System.out.println(answer);
+
 		
-        Arrays.sort(lost);
+/*        Arrays.sort(lost);
         Arrays.sort(reserve);
         //각 배열에서 겹치는 숫자 0으로 변경
         for (int i = 0; i<lost.length; i++){
@@ -46,6 +87,6 @@ public class 체육복 {
         }
         answer = n-answer;
            
-		System.out.println(answer);
+		System.out.println(answer); */
 	}
 }
