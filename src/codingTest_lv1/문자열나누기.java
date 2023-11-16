@@ -16,18 +16,22 @@ public class 문자열나누기 {
 		 * solution을 완성하세요.
 		 */
 		String s = (new Scanner(System.in)).next();
-		int answer = 0;
-		int sCnt = 1;
-		int dCnt = 0;
-		while(s.length() != 0) {
-			answer ++;
-			for(int i = 1; i < s.length(); i++) {
-				if(s.charAt(0)==s.charAt(i)) sCnt++;
-				else dCnt++;
-				if(sCnt==dCnt) break;
-			}
-			s = s.substring(sCnt + dCnt -1);
-		}
+		int answer = 1;
+		char x = s.charAt(0);
+        int count = 1;
+        for (int i = 1; i < s.length(); i++) {
+            if (count == 0) {
+                answer++;
+                x = s.charAt(i);
+            }
+
+            if (x == s.charAt(i)) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+
 		System.out.println(answer);
 	}
 
