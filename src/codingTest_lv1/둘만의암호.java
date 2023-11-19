@@ -22,23 +22,20 @@ public class 둘만의암호 {
 		String skip = sc.nextLine();
 		int index = sc.nextInt();
 		String answer = "";
-		char[] sArr = s.toCharArray();
-		char[] chArr = skip.toCharArray();
-		System.out.println(Arrays.toString(chArr));
-//		Arrays.sort(skArr);
-//		System.out.println(Arrays.toString(skArr));
-		
-		for(int i = 0; i < sArr.length; i++) {
-			
-			for(int j = 1; j <= index; j++) {
-				if(sArr[i] + j == chArr[j])
-				System.out.println(sArr[i] + j);
-			}	
-			break;
-//			for(int j = 0; j < chArr.length; j++) {
-//				
-//			}
-		}
+		for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
+            int count = 1;
+            while(count <= index){
+                ++c;
+                if(c > 'z')
+                    c -= 26;
+                if(skip.contains(c+""))
+                    continue;
+                else
+                    count++;
+            }
+            answer += c;
+        }
 		System.out.println(answer);
 	}
 
