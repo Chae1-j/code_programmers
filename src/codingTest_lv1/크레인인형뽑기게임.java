@@ -1,5 +1,7 @@
 package codingTest_lv1;
 
+import java.util.Stack;
+
 public class 크레인인형뽑기게임 {
 
 	public static void main(String[] args) {
@@ -21,6 +23,24 @@ public class 크레인인형뽑기게임 {
 		int[][] board = {{},{}};
 		int[] moves = {};
 		int answer = 0;
+        Stack<Integer> stack = new Stack<>();       
+        
+        for(int i =0;i<moves.length;i++){
+            for(int j=0;j<board.length;j++){
+                if(board[j][moves[i]-1] != 0 ) {                   
+                    if(!stack.empty() && stack.peek() == board[j][moves[i]-1]){
+                        answer++;
+                        stack.pop();
+                        board[j][moves[i]-1] = 0;
+                        break;
+                    }else{
+                        stack.push(board[j][moves[i]-1]);                      
+                        board[j][moves[i]-1] = 0;
+                        break;
+                    }
+                }                        
+            }
+        }
 		
 		System.out.println(answer);
 	}
