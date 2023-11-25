@@ -1,5 +1,7 @@
 package codingTest_lv1;
 
+import java.util.Stack;
+
 public class 햄버거만들기 {
 
 	public static void main(String[] args) {
@@ -13,9 +15,40 @@ public class 햄버거만들기 {
 		 * 포장하고, 아홉 번째 재료가 쌓였을 때, 두 번째 재료와 일곱 번째 재료부터 아홉 번째 재료를 이용하여 햄버거를 포장합니다. 
 		 * 즉, 2개의 햄버거를 포장하게 됩니다. 상수에게 전해지는 재료의 정보를 나타내는 정수 배열 ingredient가 주어졌을 때, 
 		 * 상수가 포장하는 햄버거의 개수를 return 하도록 solution 함수를 완성하시오.
+		 * 
+		 * 제한사항
+		 * 	- 1 ≤ ingredient의 길이 ≤ 1,000,000
+		 * 	- ingredient의 원소는 1, 2, 3 중 하나의 값이며, 순서대로 빵, 야채, 고기를 의미합니다.
 		 */
-		int[] ingredient = {};
+		int[] ingredient = {1, 2, 3, 1, 1, 2, 3, 1};
 		int answer = 0;
+		
+		
+		/*StringBuffer sb = new StringBuffer();
+		for(int i : ingredient) sb.append(i);
+		System.out.println(sb);
+		if(sb.length()>3 && sb.subSequence(sb.length()-4, sb.length()).equals("1231")) {
+            answer++;
+            sb.delete(sb.length()-4, sb.length());
+        } */
+		
+		Stack<Integer> stack = new Stack<>();
+		for (int in : ingredient) {
+			stack.push(in);
+			if (stack.size() >= 4) {
+				int size = stack.size();
+				if(stack.get(size - 1) == 1
+						&& stack.get(size - 2) == 3
+						&& stack.get(size - 3) == 2
+						&& stack.get(size - 4) == 1) {
+					answer++;
+					stack.pop();
+					stack.pop();
+					stack.pop();
+					stack.pop();
+				}
+			}
+		}
 		System.out.println(answer);
 	}
 
