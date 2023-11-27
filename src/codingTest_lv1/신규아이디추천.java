@@ -28,6 +28,35 @@ public class 신규아이디추천 {
 		 */
 		String new_id = "";
 		String answer = "";
+		new_id = new_id.toLowerCase();
+		String id = "";
+		
+		for(int i = 0; i < new_id.length(); i++) {
+			char ch = new_id.charAt(i);
+
+			if(ch >= 'a' && ch <= 'z') {
+				id += String.valueOf(ch);
+			} else if(ch >= '0' && ch <= '9') {
+				id += String.valueOf(ch);
+			} else if(ch == '.' || ch == '-' || ch == '_') {
+				id += String.valueOf(ch);
+			}
+		}
+
+		for(int i = 0; i < id.length(); i++) {
+			if(id.charAt(i) == '.') {
+				int j = i+1;
+				String dot = ".";
+
+				while(j != id.length() && id.charAt(j) == '.') {
+					dot += ".";
+					j++;
+				}
+
+				if(dot.length() > 1)
+					id = id.replace(dot, ".");
+			}
+		}
 		System.out.println(answer);
 	}
 
